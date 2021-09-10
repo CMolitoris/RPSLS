@@ -44,7 +44,9 @@ class Game:
     def match_sequence(self):
         done = False
         while not done:
-
+            player_one_choice = self.players[0].select_option(self.options)
+            player_two_choice = self.players[1].select_option(self.options)
+            self.contest(player_one_choice,player_two_choice)
             done = self.check_who_won()
 
     def check_who_won(self):
@@ -82,5 +84,14 @@ class Game:
             self.players.append(Human(player_one_name)) 
             self.players.append(AI())
             
-    def contest(self):
-                
+    def contest(self,player_one_option,player_two_option):
+        option_dictionary = {"Rock":["Scissors","Lizard"],"Scissors":["Paper","Lizard"],"Paper":["Rock","Spock"],"Lizard":["Spock","Paper"],"Spock":["Scissors","Rock"]}
+        list_gestures_weakness = option_dictionary.get(player_one_option)
+        if player_one_option == player_two_option:
+            print("Draw! Both gestures were the same!")
+        else:
+            if player_two_option != list_gestures_weakness[0] and player_two_option != list_gestures_weakness[1]:
+                self.players[1].points += 1
+            else: 
+                self.players[0].points += 1        
+        
