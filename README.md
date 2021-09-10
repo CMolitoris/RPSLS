@@ -1,0 +1,1 @@
+Program designed to play matches of "Rock, Paper, Scissors, Lizard, Spock", a "Rock, Paper, Scissors" variant.
