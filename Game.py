@@ -9,7 +9,7 @@ class Game:
         self.players = []
         self.choose_players()
         self.populate_options()
-        pass
+        self.run_game()
 
     # Display rules to user (best of 3, what beats what, etc.)
     # Human v Human or Human v AI
@@ -21,29 +21,48 @@ class Game:
     
     
     def run_game(self):
-        pass
+        self.display_rules()
+        
 
     def display_rules(self):
-        pass
+        print("Observe the following:")
+        print(
+            + "\nRock crushes Scissors"
+            + "\nScissors cuts Paper"
+            + "\nPaper covers Rock"
+            + "\nRock crushes Lizard"
+            + "\nLizard poisons Spock"
+            + "\nSpock smashes Scissors"
+            + "\nScissors decapitates Lizard"
+            + "\nLizard eats Paper"
+            + "\nPaper disproves Spock"
+            + "\nSpock vaporizes Rock"
+            )
+        print("\nIf you the gesture you select defeats the opponent's selected gesture, you gain a point." 
+            + "First to 2 points, wins the match!")    
 
     def match_sequence(self):
-        pass
+        done = False
+        while not done:
+
+            done = self.check_who_won()
 
     def check_who_won(self):
+        pass
+
+    def display_winners(self):
         pass
 
     #-- PVE/PVP --#
     def choose_players(self):
         print("1: Player Vs Player\n2: Player Vs AI")
-        selection = input()
+        selection = input("Which one would you like?")
         valid = False
         while not valid:
             if selection=="1":
                 valid = True
-                pass
             elif selection=="2":
                 valid = True
-                pass
             else:
                 selection = input("Invalid input, please select again: ")
         self.populate_players(selection)
@@ -54,12 +73,14 @@ class Game:
 
     def populate_players(self,selection):
         if selection=="1":
-            player_one_name = input("Enter Player One's name:")
-            player_two_name = input("Enter Player Two's name: ")
+            player_one_name = input("Enter Player one's name: ")
+            player_two_name = input("Enter Player two's name: ")
             self.players.append(Human(player_one_name))
             self.players.append(Human(player_two_name))
         else:
-            player_one_name = input("Enter Player One's name:")
+            player_one_name = input("Enter Player One's name: ")
             self.players.append(Human(player_one_name)) 
             self.players.append(AI())
             
+    def contest(self):
+                
