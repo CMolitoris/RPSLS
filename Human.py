@@ -8,8 +8,9 @@ class Human(Player):
 
     def select_option(self,options):
         count = 1
+        print("\n")
         for option in options:
-            print(count + ": " + options.get(option))
+            print(str(count) + ": " + options.get(option))
             count += 1
         user_input = input("Which would you like to select? ") 
         while True:
