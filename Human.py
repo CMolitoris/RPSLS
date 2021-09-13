@@ -7,11 +7,7 @@ class Human(Player):
         super().__init__()
 
     def select_option(self,options):
-        count = 1
-<<<<<<< HEAD
-=======
-        
->>>>>>> 8c21d6a539c8217f1c303be8c4784dedd76a400a
+        count = 1        
         for option in options:
             print(str(count) + ": " + options.get(option))
             count += 1
