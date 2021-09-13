@@ -5,10 +5,10 @@ import random
 
 class Game:
     def __init__(self) -> None:
-        self.options = {}
+        #self.options = {}
         self.players = []
         self.choose_players()
-        self.populate_options()
+        #self.populate_options()
         self.run_game()
 
     # Display rules to user (best of 3, what beats what, etc.)
@@ -25,7 +25,7 @@ class Game:
         self.match_sequence()
         
     def display_rules(self):
-        print("Observe the following:")
+        print("\nObserve the following:")
         print("\nRock crushes Scissors"
             + "\nScissors cuts Paper"
             + "\nPaper covers Rock"
@@ -43,8 +43,8 @@ class Game:
     def match_sequence(self):
         done = False
         while not done:
-            player_one_choice = self.players[0].select_option(self.options)
-            player_two_choice = self.players[1].select_option(self.options)
+            player_one_choice = self.players[0].select_option(self.players[0].options)
+            player_two_choice = self.players[1].select_option(self.players[1].options)
             
             
             self.contest(player_one_choice, player_two_choice)
@@ -78,9 +78,9 @@ class Game:
                 selection = input("Invalid input, please select again: ")
         self.populate_players(selection)
 
-    def populate_options(self):
-        update = {"1":"Rock","2":"Scissors","3":"Paper","4":"Lizard","5":"Spock"}
-        self.options.update(update)
+    # def populate_options(self):
+    #     update = {"1":"Rock","2":"Scissors","3":"Paper","4":"Lizard","5":"Spock"}
+    #     self.options.update(update)
 
     def populate_players(self,selection):
         if selection=="1":
@@ -91,7 +91,7 @@ class Game:
         else:
             player_one_name = input("Enter Player One's name: ")
             self.players.append(Human(player_one_name)) 
-            self.players.append(AI())
+            self.players.append(AI("AI"))
             
     def contest(self,player_one_option,player_two_option):
         print("\n" + self.players[0].name + " has selected " + player_one_option + "!")

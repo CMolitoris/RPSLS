@@ -3,17 +3,12 @@ from Player import Player
 
 class Human(Player):
     def __init__(self,name) -> None:
-        self.name = name
-        super().__init__()
+        super().__init__(name)
 
     def select_option(self,options):
         count = 1
-<<<<<<< HEAD
-=======
-        
->>>>>>> 8c21d6a539c8217f1c303be8c4784dedd76a400a
         for option in options:
-            print(str(count) + ": " + options.get(option))
+            print(str(count) + ": " + option)
             count += 1
         user_input = input("Which would you like to select? ") 
         while True:
