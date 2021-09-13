@@ -24,7 +24,6 @@ class Game:
         self.display_rules()
         self.match_sequence()
         
-
     def display_rules(self):
         print("Observe the following:")
         print("\nRock crushes Scissors"
@@ -39,7 +38,7 @@ class Game:
             + "\nSpock vaporizes Rock"
             )
         print("\nIf the gesture you select defeats the opponent's selected gesture, you gain a point." 
-            + " First to 2 points, wins the match!")    
+            + "\nFirst to 2 points, wins the match!")    
 
     def match_sequence(self):
         done = False
