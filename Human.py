@@ -8,7 +8,7 @@ class Human(Player):
 
     def select_option(self,options):
         count = 1
-        print("\n")
+        
         for option in options:
             print(str(count) + ": " + options.get(option))
             count += 1

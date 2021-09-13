@@ -1,7 +1,7 @@
 from Human import Human
 from Player import Player
 from AI import AI
-
+import random
 
 class Game:
     def __init__(self) -> None:
@@ -46,7 +46,9 @@ class Game:
         while not done:
             player_one_choice = self.players[0].select_option(self.options)
             player_two_choice = self.players[1].select_option(self.options)
-            self.contest(player_one_choice,player_two_choice)
+            
+            
+            self.contest(player_one_choice, player_two_choice)
             done = self.check_who_won()
 
     def check_who_won(self):
@@ -57,7 +59,7 @@ class Game:
             return True
         if player_two.points==2:
             self.display_winners(player_two)
-            return True
+            return True    
         return False
 
     def display_winners(self,player):
