@@ -2,10 +2,16 @@ from Human import Human
 from Player import Player
 from AI import AI
 import random
+from Colors import Color
 
 class Game:
     def __init__(self) -> None:
+<<<<<<< HEAD
         #self.options = {}
+=======
+        self.color = Color()
+        self.options = {}
+>>>>>>> 3908c019bbbec5c519e81cf827176bca3404cf0e
         self.players = []
         self.choose_players()
         #self.populate_options()
@@ -25,7 +31,11 @@ class Game:
         self.match_sequence()
         
     def display_rules(self):
+<<<<<<< HEAD
         print("\nObserve the following:")
+=======
+        print('\33[32m' + "Observe the following:" + '\33[0m')
+>>>>>>> 3908c019bbbec5c519e81cf827176bca3404cf0e
         print("\nRock crushes Scissors"
             + "\nScissors cuts Paper"
             + "\nPaper covers Rock"
