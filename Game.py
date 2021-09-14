@@ -1,17 +1,11 @@
 from Human import Human
-from Player import Player
 from AI import AI
-import random
 from Colors import Color
+
 
 class Game:
     def __init__(self) -> None:
-<<<<<<< HEAD
         #self.options = {}
-=======
-        self.color = Color()
-        self.options = {}
->>>>>>> 3908c019bbbec5c519e81cf827176bca3404cf0e
         self.players = []
         self.choose_players()
         #self.populate_options()
@@ -23,19 +17,12 @@ class Game:
     # Determine who won
     # Continue until one wins two matches
 
-
-    
-    
     def run_game(self):
         self.display_rules()
         self.match_sequence()
         
     def display_rules(self):
-<<<<<<< HEAD
-        print("\nObserve the following:")
-=======
-        print('\33[32m' + "Observe the following:" + '\33[0m')
->>>>>>> 3908c019bbbec5c519e81cf827176bca3404cf0e
+        print("\n"+'\33[32m' + "Observe the following:" + "\n__________________________________" + '\33[0m')
         print("\nRock crushes Scissors"
             + "\nScissors cuts Paper"
             + "\nPaper covers Rock"
@@ -104,17 +91,19 @@ class Game:
             self.players.append(AI("AI"))
             
     def contest(self,player_one_option,player_two_option):
-        print("\n" + self.players[0].name + " has selected " + player_one_option + "!")
-        print(self.players[1].name + " has selected " + player_two_option + "!")
-        option_dictionary = {"Rock":["Scissors","Lizard"],"Scissors":["Paper","Lizard"],"Paper":["Rock","Spock"],"Lizard":["Spock","Paper"],"Spock":["Scissors","Rock"]}
-        list_gestures_weakness = option_dictionary.get(player_one_option)
-        if player_one_option == player_two_option:
-            print("Draw! Both gestures were the same!")
-        else:
-            if player_two_option != list_gestures_weakness[0] and player_two_option != list_gestures_weakness[1]:
-                print(self.players[1].name + " gets a point!")
-                self.players[1].points += 1
-            else: 
-                print(self.players[0].name + " gets a point!")
-                self.players[0].points += 1        
+        print("\n" + self.players[0].name + " has selected " + player_one_option.name + "!")
+        print(self.players[1].name + " has selected " + player_two_option.name + "!")
+        player_one_option.compare_gestures(self.players,player_two_option)
+
+        #option_dictionary = {"Rock":["Scissors","Lizard"],"Scissors":["Paper","Lizard"],"Paper":["Rock","Spock"],"Lizard":["Spock","Paper"],"Spock":["Scissors","Rock"]}
+        #list_gestures_weakness = option_dictionary.get(player_one_option)
+        # if player_one_option == player_two_option:
+        #     print("Draw! Both gestures were the same!")
+        # else:
+        #     if player_two_option == player_one_option.weaknesses[0] or player_two_option == player_one_option.weaknesses[1]:
+        #         print(self.players[0].name + " gets a point!")
+        #         self.players[0].points += 1
+        #     else: 
+        #         print(self.players[1].name + " gets a point!")
+        #         self.players[1].points += 1        
         

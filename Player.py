@@ -1,4 +1,8 @@
-
+from Scissors import *
+from Rock import *
+from Lizard import *
+from Paper import *
+from Spock import *
 
 class Player:
     def __init__(self,name) -> None:
@@ -11,5 +15,5 @@ class Player:
         pass
 
     def populate_options(self):
-        update = ["Rock","Scissors","Paper","Lizard","Spock"]
+        update = [Rock(),Scissors(),Paper(),Lizard(),Spock()]
         self.options.extend(update)
