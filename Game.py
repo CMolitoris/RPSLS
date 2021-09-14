@@ -5,10 +5,9 @@ from Colors import Color
 
 class Game:
     def __init__(self) -> None:
-        #self.options = {}
         self.players = []
+        self.color = Color()
         self.choose_players()
-        #self.populate_options()
         self.run_game()
 
     # Display rules to user (best of 3, what beats what, etc.)
@@ -20,6 +19,7 @@ class Game:
     def run_game(self):
         self.display_rules()
         self.match_sequence()
+        self.play_again()
         
     def display_rules(self):
         print("\n"+'\33[32m' + "Observe the following:" + "\n__________________________________" + '\33[0m')
@@ -47,6 +47,20 @@ class Game:
             self.contest(player_one_choice, player_two_choice)
             done = self.check_who_won()
 
+    def play_again(self):
+        play_again = input("\nWould you like to play again? ").upper()
+        if play_again=="Y":
+            self.players[0].points=0
+            self.players[1].points=0
+            self.run_game()
+        elif play_again=="N":
+            self.color.print_green("Thank you for playing!")
+            return
+        else:
+            self.color.print_red("Invalid input, please try again.") 
+            self.play_again()   
+
+
     def check_who_won(self):
         player_one = self.players[0]
         player_two = self.players[1]
@@ -59,7 +73,7 @@ class Game:
         return False
 
     def display_winners(self,player):
-        print("\n" + player.name + " has won the match!")
+        self.color.print_green("\n" + player.name + " has won the match!")
 
     #-- PVE/PVP --#
     def choose_players(self):
@@ -72,12 +86,9 @@ class Game:
             elif selection=="2":
                 valid = True
             else:
-                selection = input("Invalid input, please select again: ")
+                self.color.print_red("Invalid input, please select again: ")
+                selection = input()
         self.populate_players(selection)
-
-    # def populate_options(self):
-    #     update = {"1":"Rock","2":"Scissors","3":"Paper","4":"Lizard","5":"Spock"}
-    #     self.options.update(update)
 
     def populate_players(self,selection):
         if selection=="1":

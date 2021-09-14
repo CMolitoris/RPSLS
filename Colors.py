@@ -9,4 +9,10 @@ class Color:
         self.CVIOLET = '\33[35m'
 
     def print_green(self, string):
-        return self.CGREEN + string + self.CEND    
+        print(self.CGREEN + string + self.CEND) 
+
+    def print_red(self, string):
+        print(self.CRED + string + self.CEND) 
+
+    def print_blue(self, string):
+        print(self.CBLUE + string + self.CEND)          
